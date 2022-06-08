@@ -1,0 +1,114 @@
+
+
+let inputBtn=document.querySelector("#input-btn");
+
+//instead of using onclick in html we used different method which is quite used by developers
+//this is best method used for this adding event to the like this function
+
+inputBtn.addEventListener("click",function(){
+    //ikkada direct function rayochu igaa click ayinappudu m avvali ani
+    console.log("function is clicked");
+});
+
+
+normally we use 2 ways of decalring a variable in js
+1.let
+2.const
+in const we cant reassign the variable ,it is constant
+but let can be reassigned any number of times
+
+note if we want to render list items we should not use text.content
+we have to use innerHTML to do that list items 
+see the list in js code
+
+
+**in below way we can directly use what to render using innerHTML
+**see example
+by using innerHTML we can make the button or list to work directly
+for ex:
+
+const container=document.getElementByid();
+container.innerHTML="<button onclick="buy()"> BUY </button>
+
+function buy(){
+    container.innerHTML+="<p> Thank you for buying</p>
+}
+
+//** another method of rendering of list element other than innerHTML
+   **//another methiod
+    //in this method we wil create the element and append it
+    const li=document.createElement("li");
+    li.textContent=myLeads[i];
+    ulEl.append(li)
+
+**//for fastest way 
+//dom manipulation comes with a cost
+so don't use so many inner HTML inside a loops use a variable
+and store and at-last use innerHTML for manipulation
+
+//template strings or literals *****
+listItems+=`
+            <li>
+                <a target="_blank" href='${myLeads[i]}'>
+                    ${myLeads[i]}
+                </a>
+            </li>    
+        `
+example:
+
+const recipe="james"
+
+const email="hey"+recipe+"how r u";
+instead of this we can use template strings
+
+const email="hey ${recipe} how r u ";
+this work very well
+
+** 
+local localStorage in console
+localStorage.setItem("myName","Konda Sidhartha");
+let name=localStorage.getItem("myName")
+localStorage.clear();
+
+**localStorage only stores strings
+in-order to store the array
+use JSON.stringify(array) to convert to string
+use JSON.parse(string)  to convert to array again
+**
+let myLeads=`[]`;
+myLeads=JSON.parse(myLeads);
+myLeads.push("hello.com")
+myLeads=JSON.stringify(myLeads)
+
+
+truthy and falsy values
+
+**falsy values:
+false
+0
+""
+null
+undefined
+Nan(not a number)
+
+null-> how you as a developer signalize emptiness
+undefined-> how javascript signalize emptiness
+
+example:
+//null
+let currentViewers=null
+currentViewers=["jane","ali"]
+
+currentViewers=[]
+it is better to use null
+currentViewers=null
+if(currentViewers){
+    console.log("we have viewers)
+}
+
+//undefined
+let currentViewers
+console.log(currentViewers)
+
+not js will give that it is undefined as currentViewers is not defined
+
